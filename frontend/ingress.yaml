@@ -4,6 +4,8 @@ metadata:
   name: frontend-ingress
   labels:
     name: frontend-ingress
+  annotations:
+    kubernetes.io/ingress-class: nginx
 spec:
   rules:
   - host: hypertheory-class.com
