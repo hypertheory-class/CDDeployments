@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: oncall-api
 spec:
+  replicas: 1
   selector:
     matchLabels:
       app: oncall-api
