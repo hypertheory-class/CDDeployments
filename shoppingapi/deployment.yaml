@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shopping-api
+spec:
+  selector:
+    matchLabels:
+      app: shopping-api
+  
+  template:
+    metadata:
+      labels:
+        app: shopping-api
+    
+    spec:
+      containers:
+      - name: shopping-api
+  
+        image: shopping-api:v1.0
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
+        env:
+          - name: ConnectionStrings__shopping
+            value: server=sql-server-service;database=shopping_prod;user=Sa;password=TokyoJoe138!
+          - name: onCallDeveloperUri
+            value: http://oncall-api-service/
